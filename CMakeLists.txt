@@ -8,7 +8,7 @@ option(FORCE_BUILD_VENDOR_PKG
 # Can work with poco 1.4.1p1 (earliest to use recursive mutexes on Linux)
 # 1.6.1 is the first version to ship with PocoConfigVersion.cmake
 if(NOT FORCE_BUILD_VENDOR_PKG)
-  find_package(Poco "1.6.1" COMPONENTS Foundation QUIET)
+  find_package(Poco "1.8.0" COMPONENTS Foundation QUIET)
 endif()
 
 
@@ -69,13 +69,13 @@ if(NOT Poco_FOUND)
       -DENABLE_DATA:BOOL=OFF
       -DENABLE_JSON:BOOL=OFF
       -DENABLE_MONGODB:BOOL=OFF
-      -DENABLE_NET:BOOL=OFF
+      -DENABLE_NET:BOOL=ON
       -DENABLE_NETSSL:BOOL=OFF
       -DENABLE_PAGECOMPILER_FILE2PAGE:BOOL=OFF
       -DENABLE_PAGECOMPILER:BOOL=OFF
       -DENABLE_REDIS:BOOL=OFF
-      -DENABLE_UTIL:BOOL=OFF
-      -DENABLE_XML:BOOL=OFF
+      -DENABLE_UTIL:BOOL=ON
+      -DENABLE_XML:BOOL=ON
       -DENABLE_ZIP:BOOL=OFF
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/poco_external_project_install
       ${extra_cmake_args}
